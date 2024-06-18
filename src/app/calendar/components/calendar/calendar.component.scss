@@ -1,0 +1,34 @@
+.pe-calendar-container {
+  display: flex;
+
+  .pe-calendar {
+    flex: 0 1 320px;
+  }
+
+  .pe-calendar-day-view {
+    margin-left: 32px;
+    flex: 1 1;
+
+    .pe-calendar-day-and-date {
+      text-align: center;
+      display: inline-block;
+
+      .pe-calendar-day-of-week {
+        color: rgb(26, 115, 232);
+        margin: 0;
+      }
+      .pe-calendar-date {
+        background-color: rgb(26, 115, 232);
+        color: #ffffff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        line-height: 48px;
+        text-align: center;
+        margin-top: 4px;
+        margin-bottom: 0;
+        font-size: 24px;
+      }
+    }
+  }
+}

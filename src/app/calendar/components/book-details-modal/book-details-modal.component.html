@@ -1,0 +1,15 @@
+<div class="booking-details-modal">
+  <h3 mat-dialog-title>Book Details</h3>
+  <mat-dialog-content class="booking-details-modal-content">
+    <div [formGroup]="formGroup">
+      <mat-form-field class="booking-details-modal-field">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="booking-details-modal-actions">
+    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-flat-button (click)="delete()">Delete</button>
+  </mat-dialog-actions>
+</div>

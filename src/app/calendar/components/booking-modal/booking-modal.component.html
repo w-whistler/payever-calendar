@@ -1,0 +1,17 @@
+<div class="booking-modal">
+  <h3 mat-dialog-title>Book a time</h3>
+  <mat-dialog-content class="booking-modal-content">
+    <div [formGroup]="formGroup">
+      <mat-form-field class="booking-modal-field">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="booking-modal-actions">
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-flat-button (click)="save()" [disabled]="!formGroup.valid">
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

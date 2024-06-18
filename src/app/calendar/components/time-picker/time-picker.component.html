@@ -1,0 +1,46 @@
+<div class="pe-time-picker-container">
+  <div class="pe-time-picker-hour-container">
+    <div class="pe-time-picker-hour" *ngFor="let hour of hours">
+      {{ timeToTimeString(hour, 0) }}
+    </div>
+  </div>
+
+  <div class="pe-time-picker-minute-container" cdkDropListGroup>
+    <div
+      id="cdk-container"
+      class="pe-time-picker-minutes"
+      cdkDropList
+      [cdkDropListData]="timeSlots"
+      (cdkDropListDropped)="drop($event)">
+      @for (timeSlot of timeSlots; track timeSlot) {
+        <div
+          class="pe-time-picker-time-slot"
+          (click)="clickDate(timeSlot)"
+          cdkDrag
+          cdkDragDisabled></div>
+      }
+    </div>
+    @for (appointment of appointments; track appointment) {
+      <div
+        class="pe-time-picker-appointment-slots"
+        cdkDropList
+        [cdkDropListData]="appointment"
+        [cdkDropListEnterPredicate]="canDragItemEnter"
+        [ngStyle]="{
+          top: getStartPosition(appointment),
+          height: getAppointmentSlotHeight(),
+        }">
+        <div
+          class="pe-time-picker-appointment-slot"
+          cdkDragLockAxis="y"
+          cdkDrag
+          (click)="clickAppointment(appointment)">
+          {{ appointment.title }}
+          <div *cdkDragPreview class="pe-time-picker-appointment-slot-preview">
+            {{ appointment.title }}
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

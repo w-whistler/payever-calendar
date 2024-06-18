@@ -1,0 +1,21 @@
+<div class="pe-calendar-container">
+  <mat-card class="pe-calendar">
+    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+  </mat-card>
+
+  <div class="pe-calendar-day-view">
+    <div *ngIf="selectedDate; else no_content">
+      <div class="pe-calendar-day-and-date">
+        <h5 class="pe-calendar-day-of-week">
+          {{ dayOfWeekToString(selectedDate.getDay()) }}
+        </h5>
+        <h5 class="pe-calendar-date">{{ selectedDate.getDate() }}</h5>
+      </div>
+
+      <app-time-picker [selectedDate]="selectedDate"></app-time-picker>
+    </div>
+    <ng-template #no_content>
+      <h5>Please select a day to view/manage appointments</h5>
+    </ng-template>
+  </div>
+</div>
